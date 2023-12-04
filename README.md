@@ -8,7 +8,7 @@ This project is a summary of this back-end trimester: authentication, NodeJS, Mo
 
 + [x] The objective is to build a simple platform to upload and view files:
 
-    + User authentication via a token
+  + User authentication via a token
     + List all files
     + Upload a new file
     + Change permission of a file
@@ -17,26 +17,25 @@ This project is a summary of this back-end trimester: authentication, NodeJS, Mo
 
 ## Resources
 
-  + [Node JS getting started](https://nodejs.org/en/docs/guides/getting-started-guide)
-    
-  + [Process API doc](https://node.readthedocs.io/en/latest/api/process/)
-    
-  + [Express getting started](https://expressjs.com/en/starter/installing.html)
-    
-  + [Mocha documentation](https://mochajs.org/)
-    
-  + [Nodemon documentation](https://github.com/remy/nodemon#nodemon)
-    
-  + [MongoDB](https://github.com/mongodb/node-mongodb-native)
-    
-  + [Bull](https://github.com/OptimalBits/bull)
-    
-  + [Image thumbnail](https://www.npmjs.com/package/image-thumbnail)
-    
-  + [Mime-Types](https://www.npmjs.com/package/mime-types)
-    
-  + [Redis](https://github.com/redis/node-redis)
++ [Node JS getting started](https://nodejs.org/en/docs/guides/getting-started-guide)
 
++ [Process API doc](https://node.readthedocs.io/en/latest/api/process/)
+
++ [Express getting started](https://expressjs.com/en/starter/installing.html)
+
++ [Mocha documentation](https://mochajs.org/)
+
++ [Nodemon documentation](https://github.com/remy/nodemon#nodemon)
+
++ [MongoDB](https://github.com/mongodb/node-mongodb-native)
+
++ [Bull](https://github.com/OptimalBits/bull)
+
++ [Image thumbnail](https://www.npmjs.com/package/image-thumbnail)
+
++ [Mime-Types](https://www.npmjs.com/package/mime-types)
+
++ [Redis](https://github.com/redis/node-redis)
 
 ## Learning Objectives
 
@@ -50,19 +49,18 @@ This project is a summary of this back-end trimester: authentication, NodeJS, Mo
 
 ## Requirements
 
-  + Allowed editors: `vi, vim, emacs, Visual Studio Code`
-  + All your files will be interpreted/compiled on `Ubuntu 18.04 LTS` using `node (version 12.x.x)`
-  + All your files should end with a `new line`
-  + A `README.md` file, at the root of the folder of the project, is mandatory
-  + Your code should use the `js extension`
-  + Your code will be verified against `lint using ESLint`
++ Allowed editors: `vi, vim, emacs, Visual Studio Code`
++ All your files will be interpreted/compiled on `Ubuntu 18.04 LTS` using `node (version 12.x.x)`
++ All your files should end with a `new line`
++ A `README.md` file, at the root of the folder of the project, is mandatory
++ Your code should use the `js extension`
++ Your code will be verified against `lint using ESLint`
 
 ## Provided files
 
 + `package.json`
 
-```
-{
+```{
   "name": "files_manager",
   "version": "1.0.0",
   "description": "",
@@ -110,8 +108,7 @@ This project is a summary of this back-end trimester: authentication, NodeJS, Mo
 
 + `.eslintrc.js`
 
-```
-module.exports = {
+```module.exports = {
     env: {
       browser: false,
       es6: true,
@@ -152,8 +149,7 @@ module.exports = {
 
 + `babel.config.js`
   
-```
-module.exports = {
+```module.exports = {
     presets: [
       [
         '@babel/preset-env',
@@ -183,9 +179,8 @@ module.exports = {
   + an asynchronous function get that takes a string key as argument and returns the Redis value stored for this key
   + an asynchronous function set that takes a string key, a value and a duration in second as arguments to store it in Redis (with an expiration set by the duration argument)
   + an asynchronous function del that takes a string key as argument and remove the value in Redis for this key
-    
-+ After the class definition, create and export an instance of `RedisClient` called `redisClient`.
 
++ After the class definition, create and export an instance of `RedisClient` called `redisClient`.
 
 + [x] **1. MongoDB utils**
 
@@ -197,11 +192,10 @@ module.exports = {
       + host: from the environment variable `DB_HOST` or default: `localhost`
       + port: from the environment variable `DB_PORT` or default: `27017`
       + database: from the environment variable `DB_DATABASE` or default:  `files_manager`
-   + a function `isAlive` that returns `true` when the connection to MongoDB is a success otherwise, `false`
-   + an asynchronous function `nbUsers` that returns the number of documents in the collection `users`
-   + an asynchronous function `1nbFiles` that returns the number of documents in the collection `files`
+  + a function `isAlive` that returns `true` when the connection to MongoDB is a success otherwise, `false`
+  + an asynchronous function `nbUsers` that returns the number of documents in the collection `users`
+  + an asynchronous function `1nbFiles` that returns the number of documents in the collection `files`
   + After the class definition, create and export an instance of `DBClient` called `dbClient`.
-
 
 + [x] **2. First API**
 
@@ -214,14 +208,13 @@ module.exports = {
   
     + `GET /status` => `AppController.getStatus`
     + `GET /stats` => `AppController.getStats`
-      
+
   + Inside the folder `controllers`, create a file [AppController.js](AppController.js) that contains the definition of the 2 endpoints:
   
     + `GET /status` should return if Redis is alive and if the DB is alive too by using the 2 utils created previously: `{ "redis": true, "db": true }` with a status code 200
     + `GET /stats` should return the number of users and files in DB: `{ "users": 12, "files": 1231 }` with a status code 200
       + `users` collection must be used for counting all users
       + `files` collection must be used for counting all files
-
 
 + [x] **3. Create a new user**
 
@@ -238,7 +231,7 @@ module.exports = {
     + If the `email` is missing, return an error `Missing email` with a status code 400
     + If the `password` is missing, return an error `Missing password` with a status code 400
     + If the `email` already exists in DB, return an error `Already exist` with a status code 400
-    + The `password ` must be stored after being hashed in `SHA1`
+    + The `password` must be stored after being hashed in `SHA1`
     + The endpoint is returning the new user with only the `email` and the `id` (auto generated by MongoDB) with a status code 201
     + The new user must be saved in the collection `users`:
       + `email`: same as the value received
@@ -251,27 +244,27 @@ module.exports = {
     + `GET /connect` => `AuthController.getConnect`
     + `GET /disconnect` => `AuthController.getDisconnect`
     + `GET /users/me` => `UserController.getMe`
-      
+
   + Inside `controllers`, add a file [AuthController.js](AuthController.js) that contains new endpoints:
   
     + `GET /connect` should sign-in the user by generating a new authentication token:
-    
+
       + By using the header `Authorization` and the technique of the Basic auth (Base64 of the `<email>:<password>)`, find the user associate to this email and with this password (reminder: we are storing the SHA1 of the password)
       + If no user has been found, return an error `Unauthorized` with a status code 401
       + Otherwise:
-          + Generate a random string (using `uuidv4)` as token
-          + Create a key: `auth_<token>`
-          + Use this key for storing in Redis (by using the `redisClient` create previously) the user ID for 24 hours
-          + Return this token: `{ "token": "155342df-2399-41da-9e8c-458b6ac52a0c" }` with a status code 200
-   + Now, we have a way to identify a user, create a token (= avoid to store the password on any front-end) and use this token for 24h to access to the API!
+        + Generate a random string (using `uuidv4)` as token
+        + Create a key: `auth_<token>`
+        + Use this key for storing in Redis (by using the `redisClient` create previously) the user ID for 24 hours
+        + Return this token: `{ "token": "155342df-2399-41da-9e8c-458b6ac52a0c" }` with a status code 200
+  + Now, we have a way to identify a user, create a token (= avoid to store the password on any front-end) and use this token for 24h to access to the API!
   
-   + Every authenticated endpoints of our API will look at this token inside the header X-Token.
+  + Every authenticated endpoints of our API will look at this token inside the header X-Token.
   
-   + GET /disconnect should sign-out the user based on the token:
+  + GET /disconnect should sign-out the user based on the token:
   
-      + Retrieve the user based on the token:
-        + If not found, return an error `Unauthorized` with a status code 401
-        + Otherwise, delete the token in Redis and return nothing with a status code 204
+    + Retrieve the user based on the token:
+      + If not found, return an error `Unauthorized` with a status code 401
+      + Otherwise, delete the token in Redis and return nothing with a status code 204
   
   + Inside the file [controllers/UsersController.js](controllers/UsersController.js) add a new endpoint:
   
@@ -286,7 +279,7 @@ module.exports = {
   + In the file routes/index.js, add a new endpoint:
   
   + `POST /files` => `FilesController.postUpload`
-    
+
   + Inside [controllers](controllers), add a file [FilesController.js](FilesController.js) that contains the new endpoint:
   
   + `POST /files` should create a new file in DB and in disk:
@@ -299,7 +292,7 @@ module.exports = {
       + `parentId`: (optional) as ID of the parent (default: 0 -> the root)
       + `isPublic`: (optional) as boolean to define if the file is public or not (default: false)
       + `data`: (only for `type=file|image`) as Base64 of the file content
-        
+
   + If the `name` is missing, return an error `Missing name` with a status code 400
   + If the `type` is missing or not part of the list of accepted type, return an error `Missing type` with a status code 400
   + If the `data` is missing and `type != folder`, return an error `Missing data` with a status code 400
@@ -322,7 +315,7 @@ module.exports = {
       + `parentId`: same as the value received - if not present: 0
       + `localPath`: for a `type=file|image`, the absolute path to the file save in local
     + Return the new file with a status code 201
- 
+
 + [x] **6. Get and list file**
 
   + In the file routes/index.js, add 2 new endpoints:
@@ -338,7 +331,7 @@ module.exports = {
       + If not found, return an error Unauthorized with a status code 401
     + If no file document is linked to the user and the ID passed as parameter, return an error Not found with a status code 404
     + Otherwise, return the file document
-      
+
   + GET /files should retrieve all users file documents for a specific parentId and with pagination:
   
     + Retrieve the user based on the token:
@@ -348,9 +341,9 @@ module.exports = {
         + No validation of parentId needed - if the parentId is not linked to any user folder, returns an empty list
         + By default, parentId is equal to 0 = the root
     + Pagination:
-        + Each page should be 20 items max
-        + page query parameter starts at 0 for the first page. If equals to 1, it means it’s the second page (form the 20th to the 40th), etc…
-        + Pagination can be done directly by the aggregate of MongoDB
+      + Each page should be 20 items max
+      + page query parameter starts at 0 for the first page. If equals to 1, it means it’s the second page (form the 20th to the 40th), etc…
+      + Pagination can be done directly by the aggregate of MongoDB
 
 + [x] **7. File publish/unpublish**
 
@@ -372,12 +365,12 @@ module.exports = {
   + `PUT /files/:id/unpublish` should set isPublic to false on the file document based on the ID:
   
     + Retrieve the user based on the token:
-       + If not found, return an error `Unauthorized` with a status code 401
+      + If not found, return an error `Unauthorized` with a status code 401
     + If no file document is linked to the user and the ID passed as parameter, return an error `Not found` with a status code 404
     + Otherwise:
       + Update the value of `isPublic` to `false`
       + And return the file document with a status code 200
-   
+
 + [x]  **8. File data**
   
   + In the file [routes/index.js](routes/index.js), add one new endpoint:
@@ -394,11 +387,11 @@ module.exports = {
   + Otherwise:
     + By using the module `mime-types`, get the `MIME-type` based on the `name` of the file
     + Return the content of the file with the correct MIME-type
-   
+
 + [x] **9. Image Thumbnails**
 
   + Update the endpoint POST /files endpoint to start a background processing for generating thumbnails for a file of type image:
-    
+
     + Create a Bull queue fileQueue
     + When a new image is stored (in local and in DB), add a job to this queue with the userId and fileId
   + Create a file [worker.js](worker.js):
@@ -408,14 +401,13 @@ module.exports = {
     + If fileId is not present in the job, raise an error Missing fileId
     + If userId is not present in the job, raise an error Missing userId
     + If no document is found in DB based on the fileId and userId, raise an error File not found
-    + By using the module image-thumbnail, generate 3 thumbnails with width = 500, 250 and 100 - store each result on the same location of the original file by appending _<width size>
+    + By using the module image-thumbnail, generate 3 thumbnails with width = 500, 250 and 100 - store each result on the same location of the original file by appending _`<width size>`
   
   + Update the endpoint `GET /files/:id/data` to accept a query parameter `size`:
   
     + `size` can be `500`, `250` or `100`
     + Based on `size`, return the correct local file
     + If the local file doesn’t exist, return an error `Not found` with a status code 404
- 
 
 ### Applications
 
