@@ -1,6 +1,6 @@
 # alx-files_manager
 
-0x04. Files manager: Back-end, JavaScript, ES6, NoSQL , MongoDB, Redis NodeJS, ExpressJS and Kue
+This Project aims at `Back-end`, `JavaScript`, `ES6`, `NoSQL` , `MongoDB`, `Redis NodeJS`,`ExpressJS` and `Kue`
 
 [![Coverage Status](https://coveralls.io/repos/github/B3zaleel/alx-files_manager/badge.svg?branch=main)](https://coveralls.io/github/B3zaleel/alx-files_manager?branch=main)
 
