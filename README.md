@@ -171,7 +171,7 @@ module.exports = {
 
 ## Project Sub-tasks
 
-+ [x] 0. Redis utils
++ [x] **0. Redis utils**
 
 + Inside the folder `utils`, create a file [redis.js](redis.js) that contains the class `RedisClient`.
 
@@ -187,7 +187,7 @@ module.exports = {
 + After the class definition, create and export an instance of `RedisClient` called `redisClient`.
 
 
-+ [x] 1. MongoDB utils
++ [x] **1. MongoDB utils**
 
   + Inside the folder `utils`, create a file [db.js](db.js) that contains the class `DBClient.`
   
@@ -203,7 +203,7 @@ module.exports = {
   + After the class definition, create and export an instance of `DBClient` called `dbClient`.
 
 
-+ [x] 2. First API
++ [x] **2. First API**
 
   + Inside [server.js](server.js), create the Express server:
   
@@ -223,7 +223,7 @@ module.exports = {
       + `files` collection must be used for counting all files
 
 
-+ [x] 3. Create a new user
++ [x] **3. Create a new user**
 
   + Now that we have a simple API, it’s time to add users to our database.
   
@@ -244,7 +244,7 @@ module.exports = {
       + `email`: same as the value received
       + `password`: SHA1 value of the value received
 
-+ [x] 4. Authenticate a user
++ [x] **4. Authenticate a user**
 
   + In the file [routes/index.js](routes/index.js), add 3 new endpoints:
   
@@ -281,7 +281,7 @@ module.exports = {
       + If not found, return an error `Unauthorized` with a status code 401
       + Otherwise, return the user object (`email` and `id` only)
 
-+ [x] 5. First file
++ [x] **5. First file**
 
   + In the file routes/index.js, add a new endpoint:
   
@@ -323,7 +323,7 @@ module.exports = {
       + `localPath`: for a `type=file|image`, the absolute path to the file save in local
     + Return the new file with a status code 201
  
-+ [x] 6. Get and list file
++ [x] **6. Get and list file**
 
   + In the file routes/index.js, add 2 new endpoints:
   
@@ -352,7 +352,7 @@ module.exports = {
         + page query parameter starts at 0 for the first page. If equals to 1, it means it’s the second page (form the 20th to the 40th), etc…
         + Pagination can be done directly by the aggregate of MongoDB
 
-+ [x] 7. File publish/unpublish
++ [x] **7. File publish/unpublish**
 
   + In the file routes/index.js, add 2 new endpoints:
   
@@ -378,7 +378,7 @@ module.exports = {
       + Update the value of `isPublic` to `false`
       + And return the file document with a status code 200
    
-+ [x]  8. File data
++ [x]  **8. File data**
   
   + In the file [routes/index.js](routes/index.js), add one new endpoint:
   
@@ -395,7 +395,7 @@ module.exports = {
     + By using the module `mime-types`, get the `MIME-type` based on the `name` of the file
     + Return the content of the file with the correct MIME-type
    
-+ [x] 9. Image Thumbnails
++ [x] **9. Image Thumbnails**
 
   + Update the endpoint POST /files endpoint to start a background processing for generating thumbnails for a file of type image:
     
